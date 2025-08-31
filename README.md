@@ -57,7 +57,7 @@ Follow the instructions here: [Google Books API Documentation](https://developer
 # Add .env file in root with API key
 VITE_GOOGLE_BOOKS_API_KEY=google_books_api_key_here
 ```
-
+### 🔃 Start Application
 ```bash
 # Run Backend Server
 node server.js
