@@ -59,6 +59,11 @@ VITE_GOOGLE_BOOKS_API_KEY=google_books_api_key_here
 ```
 
 ```bash
+# Run Backend Server
+node server.js
+```
+
+```bash
 # Run Development Server
 npm run dev
 ```
