@@ -68,6 +68,7 @@ export default {
   methods: {
     async handleLogin() {
       try {
+        // Use express node.js 
         const res = await fetch("http://localhost:5000/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -76,7 +77,9 @@ export default {
         const data = await res.json();
 
         if (res.ok) {
+          // Store JWT Token in local storage
           localStorage.setItem("token", data.token);
+          // Emit events for other components
           this.$emit("logged-in");
           this.$emit("close"); 
         } else {

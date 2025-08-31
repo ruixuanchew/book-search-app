@@ -100,6 +100,7 @@ export default {
         viewability: [],
         pdf: []
       },
+      // Define Filter options
       pageRanges: [
         { label: "< 50", value: "<50" },
         { label: "50 – 100", value: "50-100" },

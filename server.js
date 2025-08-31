@@ -22,6 +22,7 @@ const db = await mysql.createConnection({
 // Signup
 app.post("/signup", async (req, res) => {
   const { username, email, password } = req.body;
+  // Hash password using bcrypt
   const hashedPassword = await bcrypt.hash(password, 10);
 
   await db.execute(

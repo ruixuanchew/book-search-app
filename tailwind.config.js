@@ -5,6 +5,7 @@ export default {
   theme: {
     extend: {
       colors:{
+        // Define global colors
         brand:{
           primary: "#a0856b", 
           secondary: "#4e2917ff", 

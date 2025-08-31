@@ -84,7 +84,7 @@
       </p>
     </div>
 
-    <!-- Optional: fallback UI while loading -->
+    <!-- Fallback UI while loading -->
     <div v-else class="p-4 text-white">
       Loading book info...
     </div>

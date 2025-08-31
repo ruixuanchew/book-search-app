@@ -3,15 +3,18 @@
     <div v-if="searchResults && searchResults.length">
       <h2 class="text-white text-3xl font-bold mb-6 px-4">Search Results</h2>
 
+      <!-- Mount Sort and Filter Bar -->
       <div class="flex gap-4 mb-6 px-4">
         <SortBar @select-sort="handleSort" />
         <FilterBar @apply-filters="applyFilters"/>
         
       </div>
 
+      <!-- If there are results than display grid view -->
       <div v-if="paginatedResults.length > 0">
         <!-- Book grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6 px-4">
+          <!-- Mount CardView Component -->
           <CardView
             v-for="book in paginatedResults"
             :key="book.id"
@@ -45,11 +48,13 @@
     <div v-else>
       <h2 class="text-white text-3xl font-bold mb-6 px-4">Trending</h2>
       <div class="flex gap-6 overflow-x-auto pb-4 px-4 custom-scrollbar">
+        <!-- Mount CardView Component -->
         <CardView v-for="book in trendingBooks" :key="book.id" :book="book" class="flex-shrink-0 snap-start" />
       </div>
 
       <h2 class="text-white text-3xl font-bold mt-12 mb-6 px-4">Newest Books</h2>
       <div class="flex gap-6 overflow-x-auto pb-4 px-4 custom-scrollbar">
+        <!-- Mount CardView Component -->
         <CardView v-for="book in newestBooks" :key="book.id" :book="book" class="flex-shrink-0 snap-start" />
       </div>
     </div>
@@ -65,6 +70,7 @@ import { getTrendingBooks, getNewestBooks } from "../services/booksApi.js"
 export default {
   name: "BookDisplay",
   components: { CardView, FilterBar, SortBar },
+  // Props passed in from parent (App.vue)
   props: {
     searchResults: {
       type: Array,
@@ -73,6 +79,7 @@ export default {
   },
   data() {
     return {
+      // Initialise Variables
       trendingBooks: [],
       newestBooks: [],
       currentPage: 1,
@@ -81,15 +88,18 @@ export default {
     }
   },
   computed: {
+    // Total number of pages based on filtered/sorted results
     totalPages() {
       return Math.ceil(this.sortedResults.length / this.resultsPerPage)
     },
     paginatedResults() {
+      // Slice the results for the current page
       const start = (this.currentPage - 1) * this.resultsPerPage
       return this.sortedResults.slice(start, start + this.resultsPerPage)
     }
   },
   watch: {
+    // Watch for changes in searchResults (from parent)
     searchResults: {
       immediate: true,
       handler(newResults) {
@@ -104,6 +114,7 @@ export default {
     prevPage() {
       if (this.currentPage > 1) this.currentPage--
     },
+    // Handle sorting logic based on selected option
     handleSort(option) {
       if (!this.sortedResults.length) return
 
@@ -128,9 +139,10 @@ export default {
             new Date(a.volumeInfo.publishedDate)
         )
       }
-      
+       // Reset pagination back to first page after sorting
       this.currentPage = 1 
     },
+    // Apply filters from FilterBar (pages, maturity, saleability, etc.)
     applyFilters(filters) {
     this.sortedResults = this.searchResults.filter(book => {
       const info = book.volumeInfo || {};

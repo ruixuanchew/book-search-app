@@ -61,6 +61,7 @@ export default {
   },
   data() {
     return {
+      // Define dropdown options
       genres: [
         "ART", "BIOGRAPHY & AUTOBIOGRAPHY", "BUSINESS & ECONOMICS", "COMICS & GRAPHIC NOVELS",
         "COMPUTERS", "CRAFTS & HOBBIES", "DESIGN", "DRAMA", "EDUCATION", "FICTION",

@@ -30,6 +30,7 @@
     <BookDisplay :searchResults="searchResults" />
   </section>
 
+  <!-- Login/Sign up Modal -->
   <LoginModal 
     v-if="showLoginModal" 
     @close="showLoginModal = false"

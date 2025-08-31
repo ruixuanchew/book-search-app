@@ -1,4 +1,4 @@
-# 📚 Booker  
+# 📚 Booker (Currently Still In Progress)
 
 **Booker** is a modern, responsive web app for exploring books, discovering trending & newest releases, and searching by genre, language, or custom queries. Built with Vue 3 + TailwindCSS, it provides a clean UI, powerful filtering/sorting. Additionally, for backend functionalities, the application uses Node.js server along with MySQL Database, allowing for login and registration functionalities. This project is currently still in progress, with future features including wishlist, book details modal, and further user interface improvements. 
 
@@ -93,6 +93,8 @@ src/
  │    ├── Filter.vue
  │    ├── Sort.vue
  │    └── BookModal.vue
+ │    └── LoginModal.vue
+ │    └── SignupModal.vue
  │
  ├── services/
  │    └── booksApi.js   # Handles Google Books API calls
@@ -100,3 +102,6 @@ src/
  ├── App.vue            # Root component
  └── main.js            # Entry point
 ```
+
+### 📽️ Video Demonstration (Incomplete Version)
+[![Watch the demo](./screenshots/thumbnail.png)](https://youtu.be/OdTABXOCBjk)

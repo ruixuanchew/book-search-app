@@ -20,6 +20,7 @@ export async function searchBooks(query, startIndex = 0, maxResults = 20) {
   return filtered
 }
 
+// Get Trending Books
 export async function getTrendingBooks() {
   let ratedBooks = [];
   let startIndex = 0;
@@ -52,6 +53,7 @@ export async function getTrendingBooks() {
   return ratedBooks.slice(0, 10);
 }
 
+// Get Newest Books
 export async function getNewestBooks() {
   const res = await fetch(
     `https://www.googleapis.com/books/v1/volumes?q=a&orderBy=newest&maxResults=7&key=${API_KEY}`
@@ -77,9 +79,9 @@ export async function getBooksByLanguage(langCode, maxResults = 20) {
 
   const code = String(langCode).toLowerCase();
   const results = [];
-  const batchSize = 40;        // max allowed per request is 40
+  const batchSize = 40; 
   let startIndex = 0;
-  const maxAttempts = 6;      // safety cap (40 * 6 = 240 items scanned max)
+  const maxAttempts = 6;      
 
   for (let attempt = 0; attempt < maxAttempts && results.length < maxResults; attempt++) {
     const pageSize = Math.min(batchSize, maxResults);
@@ -91,7 +93,7 @@ export async function getBooksByLanguage(langCode, maxResults = 20) {
     const data = await res.json();
     if (!data || !data.items || data.items.length === 0) break;
 
-    // Keep only items that explicitly declare the language and match our code
+    // Keep only items that explicitly declare the language and match ISO code
     const matched = data.items.filter(
       (it) =>
         it.volumeInfo &&
@@ -104,8 +106,8 @@ export async function getBooksByLanguage(langCode, maxResults = 20) {
     startIndex += pageSize;
   }
 
-  // If results are still empty, as a last resort try a looser fetch (no langRestrict)
-  // and filter by volumeInfo.language manually (sometimes API inconsistencies).
+  // Due to nature of Google Books API, filtering by language is hard to pinpoint exact accurate results.
+  // If above query does not result in any books, remove langRestrict for a looser query
   if (results.length === 0) {
     const fallbackRes = await fetch(
       `https://www.googleapis.com/books/v1/volumes?q=a&printType=books&maxResults=${Math.min(
