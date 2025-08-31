@@ -63,7 +63,7 @@ VITE_GOOGLE_BOOKS_API_KEY=google_books_api_key_here
 npm run dev
 ```
 
-### Database Connection 
+### 📟 Database Connection 
 1. Run the booker_app_db.sql in root folder to create necessary database and table
 2. Database Connection (.env)
 ```bash
