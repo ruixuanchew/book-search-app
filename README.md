@@ -5,7 +5,7 @@
 ---
 
 ## ✨ Features  
-
+- 🙍‍♀️ **Login/Sign Up** – allow user to login or sign up.  
 - 🔎 **Search Books** – search by title, author, or keyword.  
 - 📈 **Trending & Newest Books** – displayed on the homepage.  
 - 🎭 **Browse by Genre** – wide variety of genres available in the navbar.  
@@ -15,7 +15,7 @@
 
 ## 💻 Features In Progress 
 - 📖 **Book Details Modal** – click a book to view details, description, and preview link.  
-- ❤️ **Wishlist** – add/remove books from wishlist (stored in `localStorage`).  
+- ❤️ **Wishlist** – add/remove books from wishlist (stored in MySQL Database).  
 - 📱 **Responsive Design** – optimized for both desktop and mobile devices.  
 
 ---
@@ -26,6 +26,7 @@
 - **Styling:** Tailwind CSS  
 - **Components:** Custom Vue components for Navbar, Book Display, Cards, Filters, Sort, and Modal  
 - **Data Source:** Google Books API  
+- **Database:** MySQL 
 
 ---
 
@@ -60,6 +61,19 @@ VITE_GOOGLE_BOOKS_API_KEY=google_books_api_key_here
 ```bash
 # Run Development Server
 npm run dev
+```
+
+### Database Connection 
+1. Run the booker_app_db.sql in root folder to create necessary database and table
+2. Database Connection (.env)
+```bash
+# Add database credentials to .env file 
+DB_HOST=host_here
+DB_USER=user_here
+DB_PORT=port_here
+DB_PASSWORD=password_here
+DB_NAME=database_name_here
+JWT_SECRET=secret_key_here
 ```
 
 ### 🗃️ Project Structure

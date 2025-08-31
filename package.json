@@ -10,6 +10,12 @@
     "tailwind:init": "tailwindcss init -p"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.3",
     "pinia": "^3.0.3",
     "vue": "^3.5.18"
   },
@@ -19,5 +25,18 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "vite": "^7.1.2"
-  }
+  },
+  "description": "**Booker** is a modern, responsive web app for exploring books, discovering trending & newest releases, and searching by genre, language, or custom queries. Built with Vue 3 + TailwindCSS, it provides a clean UI, powerful filtering/sorting, and a wishlist feature powered by local storage.",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruixuanchew/book-search-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruixuanchew/book-search-app/issues"
+  },
+  "homepage": "https://github.com/ruixuanchew/book-search-app#readme"
 }
